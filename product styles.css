@@ -1,4 +1,4 @@
-/* product-styles.css - DARK MOODY INDUSTRIAL 2026 VIBE - TWO PRODUCTS PER ROW, SUBTLE CYAN ACCENTS */
+/* product-styles.css - Attractive BLUE ECOMMERCE THEME 2026 vibes */
 
 * {
     margin: 0;
@@ -7,199 +7,194 @@
 }
 
 :root {
-    --primary-cyan: #40c4ff;           /* Subtle cyan - main accent */
-    --deep-black: #0a0a0a;             /* True dark background */
-    --dark-gray: #121212;
-    --text-light: #e0e0e0;
-    --border-subtle: rgba(64, 196, 255, 0.18);
-    --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.6);
-    --transition: all 0.25s ease;
+    --primary-blue: #af401e;          /* Rich royal blue - main buttons/accent */
+    --deep-blue: #0f172a;             /* Deep navy - navbar, hero bg */
+    --light-blue: #f63b5a;            /* Lighter hover/pop blue */
+    --gradient-blue: linear-gradient(135deg, #8a1e3e, #f63b79); /* sexy gradient */
+    --white: #ffffff;
+    --light-gray: #f8fafc;
+    --dark-text: #0f172a;
+    --border: rgba(30, 64, 175, 0.2);
+    --shadow: 0 10px 30px rgba(30, 64, 175, 0.15);
 }
 
 body {
     font-family: 'Inter', system-ui, sans-serif;
-    background-color: var(--deep-black);
-    color: var(--text-light);
+    background-color: var(--light-gray);
+    color: var(--dark-text);
     line-height: 1.6;
 }
 
-/* Navbar - clean dark with thin cyan line */
+/* Navbar - deep blue with gradient touch */
 .navbar {
-    background: var(--deep-black);
-    color: var(--text-light);
-    padding: 1.2rem 2.5rem;
+    background: var(--deep-blue);
+    color: white;
+    padding: 1rem 2rem;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.7);
-    border-bottom: 1px solid var(--border-subtle);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    backdrop-filter: blur(10px);
 }
 
 .logo {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 900;
     letter-spacing: -1px;
-    color: var(--primary-cyan);
+    background: var(--gradient-blue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-/* Hero - dark with very subtle cyan gradient */
+/* Hero - gradient blue bg for premium feel */
 .hero {
-    background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
-    color: var(--text-light);
+    background: var(--gradient-blue);
+    color: white;
     text-align: center;
     padding: 6rem 1.5rem;
-    border-bottom: 1px solid var(--border-subtle);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 70%, rgba(255,255,255,0.1), transparent);
+    pointer-events: none;
 }
 
 .hero h1 {
-    font-size: 3.8rem;
+    font-size: 3.5rem;
     font-weight: 900;
     margin-bottom: 1rem;
-    color: white;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
-.hero p {
-    font-size: 1.3rem;
-    opacity: 0.9;
-}
-
-/* Product Grid - TWO PER ROW on desktop, one on mobile */
+/* Product Grid - VERTICAL scroll, snap to show TWO products at a time */
 .product-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-    padding: 3rem 1.5rem;
-    max-width: 1400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;                    /* Space between products for breathing room */
+    padding: 2rem 1rem;
+    min-height: 100vh;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    -webkit-overflow-scrolling: touch;
+    max-width: 1000px;
     margin: 0 auto;
     width: 100%;
 }
 
-@media (min-width: 900px) {
-    .product-grid {
-        grid-template-columns: 1fr 1fr;     /* TWO IN A ROW */
-    }
+.product-grid::-webkit-scrollbar {
+    width: 10px;
 }
 
+.product-grid::-webkit-scrollbar-thumb {
+    background: var(--primary-blue);
+    border-radius: 10px;
+}
+
+/* Each product takes ~45-50% viewport height so TWO fit nicely on most screens */
 .product {
-    background: var(--dark-gray);
+    background: white;
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: var(--shadow-soft);
-    transition: var(--transition);
-    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow);
+    width: 90%;
+    max-width: 500px;
+    margin: 0 auto;
+    scroll-snap-align: center;
+    transition: all 0.4s ease;
+    border: 1px solid var(--border);
 }
 
 .product:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.7);
-    border-color: var(--primary-cyan);
+    transform: translateY(-12px);
+    box-shadow: 0 20px 50px rgba(30, 64, 175, 0.25);
+    border-color: var(--light-blue);
 }
 
 .product img {
     width: 100%;
     height: auto;
     object-fit: cover;
-    aspect-ratio: 4 / 3;           /* Wider, more modern look */
+    aspect-ratio: 1 / 1;           /* Square-ish for consistency */
 }
 
 .product p {
-    font-size: 1.25rem;
-    font-weight: 700;
-    padding: 1.2rem 1.5rem 0.4rem;
-    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 1rem 1.5rem 0.5rem;
+    color: var(--deep-blue);
 }
 
 .product span {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: 800;
-    color: var(--primary-cyan);
-    padding: 0 1.5rem 1.2rem;
+    color: var(--primary-blue);
+    padding: 0 1.5rem 1rem;
     display: block;
 }
 
-/* Buttons - clean, minimal, cyan accents */
+/* Buttons - premium blue look */
 .buttons {
     display: flex;
     gap: 1rem;
-    padding: 0 1.5rem 1.5rem;
+    padding: 1rem 1.5rem;
 }
 
 .buy-now, .more {
     flex: 1;
     padding: 1rem;
-    border-radius: 10px;
+    border-radius: 12px;
     font-weight: 700;
     text-transform: uppercase;
     cursor: pointer;
-    transition: var(--transition);
+    transition: all 0.3s ease;
     border: none;
 }
 
 .buy-now {
-    background: var(--primary-cyan);
-    color: #000;
+    background: var(--gradient-blue);
+    color: white;
 }
 
 .buy-now:hover {
-    background: #33b5e5;
-    transform: translateY(-2px);
+    background: var(--light-blue);
+    transform: scale(1.05);
 }
 
 .more {
     background: transparent;
-    color: var(--primary-cyan);
-    border: 2px solid var(--primary-cyan);
+    color: var(--primary-blue);
+    border: 2px solid var(--primary-blue);
 }
 
 .more:hover {
-    background: var(--primary-cyan);
-    color: #000;
+    background: var(--primary-blue);
+    color: white;
 }
 
-/* Dropdown - subtle dark expand */
+/* Dropdown - subtle slide */
 .dropdown {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.5s ease, padding 0.3s ease;
-    background: #0f0f0f;
+    transition: max-height 0.6s ease;
+    background: var(--light-gray);
     padding: 0 1.5rem;
 }
 
 .dropdown.open {
-    max-height: 800px;
+    max-height: 800px; /* adjust if needed */
     padding: 1.5rem;
 }
 
-/* Footer */
+/* Footer etc - match theme */
 footer {
-    background: var(--deep-black);
-    color: #aaa;
+    background: var(--deep-blue);
+    color: white;
     padding: 3rem 1rem;
     text-align: center;
-    border-top: 1px solid var(--border-subtle);
-}
-
-.social-icons a {
-    color: #777;
-    font-size: 1.6rem;
-    margin: 0 0.8rem;
-    transition: var(--transition);
-}
-
-.social-icons a:hover {
-    color: var(--primary-cyan);
-}
-
-/* Scrollbar styling */
-.product-grid::-webkit-scrollbar {
-    width: 10px;
-}
-
-.product-grid::-webkit-scrollbar-thumb {
-    background: #333;
-    border-radius: 10px;
-}
-
-.product-grid::-webkit-scrollbar-track {
-    background: #111;
 }
