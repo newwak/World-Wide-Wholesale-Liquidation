@@ -1,4 +1,4 @@
-/* product-styles.css - Attractive BLUE ECOMMERCE THEME 2026 vibes */
+/* product-styles.css - BLACK & WHITE ECOMMERCE THEME */
 
 * {
     margin: 0;
@@ -7,15 +7,15 @@
 }
 
 :root {
-    --primary-blue: #af401e;          /* Rich royal blue - main buttons/accent */
-    --deep-blue: #0f172a;             /* Deep navy - navbar, hero bg */
-    --light-blue: #f63b5a;            /* Lighter hover/pop blue */
-    --gradient-blue: linear-gradient(135deg, #8a1e3e, #f63b79); /* sexy gradient */
+    --primary: #000000;
+    --deep: #000000;
+    --light: #555555;
+    --gradient: linear-gradient(135deg, #ffffff, #cccccc);
     --white: #ffffff;
-    --light-gray: #f8fafc;
-    --dark-text: #0f172a;
-    --border: rgba(30, 64, 175, 0.2);
-    --shadow: 0 10px 30px rgba(30, 64, 175, 0.15);
+    --light-gray: #111111;
+    --dark-text: #eeeeee;
+    --border: rgba(255, 255, 255, 0.12);
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
 }
 
 body {
@@ -25,15 +25,14 @@ body {
     line-height: 1.6;
 }
 
-/* Navbar - deep blue with gradient touch */
 .navbar {
-    background: var(--deep-blue);
+    background: var(--deep);
     color: white;
     padding: 1rem 2rem;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
     backdrop-filter: blur(10px);
 }
 
@@ -41,14 +40,13 @@ body {
     font-size: 1.8rem;
     font-weight: 900;
     letter-spacing: -1px;
-    background: var(--gradient-blue);
+    background: var(--gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-/* Hero - gradient blue bg for premium feel */
 .hero {
-    background: var(--gradient-blue);
+    background: var(--deep);
     color: white;
     text-align: center;
     padding: 6rem 1.5rem;
@@ -60,7 +58,7 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 30% 70%, rgba(255,255,255,0.1), transparent);
+    background: radial-gradient(circle at 30% 70%, rgba(255,255,255,0.06), transparent);
     pointer-events: none;
 }
 
@@ -68,15 +66,14 @@ body {
     font-size: 3.5rem;
     font-weight: 900;
     margin-bottom: 1rem;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    text-shadow: 0 2px 10px rgba(0,0,0,0.6);
 }
 
-/* Product Grid - VERTICAL scroll, snap to show TWO products at a time */
 .product-grid {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2.5rem;                    /* Space between products for breathing room */
+    gap: 2.5rem;
     padding: 2rem 1rem;
     min-height: 100vh;
     overflow-y: auto;
@@ -92,13 +89,12 @@ body {
 }
 
 .product-grid::-webkit-scrollbar-thumb {
-    background: var(--primary-blue);
+    background: #444;
     border-radius: 10px;
 }
 
-/* Each product takes ~45-50% viewport height so TWO fit nicely on most screens */
 .product {
-    background: white;
+    background: #1a1a1a;
     border-radius: 16px;
     overflow: hidden;
     box-shadow: var(--shadow);
@@ -112,33 +108,32 @@ body {
 
 .product:hover {
     transform: translateY(-12px);
-    box-shadow: 0 20px 50px rgba(30, 64, 175, 0.25);
-    border-color: var(--light-blue);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+    border-color: #777;
 }
 
 .product img {
     width: 100%;
     height: auto;
     object-fit: cover;
-    aspect-ratio: 1 / 1;           /* Square-ish for consistency */
+    aspect-ratio: 1 / 1;
 }
 
 .product p {
     font-size: 1.2rem;
     font-weight: 600;
     padding: 1rem 1.5rem 0.5rem;
-    color: var(--deep-blue);
+    color: var(--white);
 }
 
 .product span {
     font-size: 1.5rem;
     font-weight: 800;
-    color: var(--primary-blue);
+    color: var(--white);
     padding: 0 1.5rem 1rem;
     display: block;
 }
 
-/* Buttons - premium blue look */
 .buttons {
     display: flex;
     gap: 1rem;
@@ -157,43 +152,42 @@ body {
 }
 
 .buy-now {
-    background: var(--gradient-blue);
-    color: white;
+    background: var(--white);
+    color: var(--primary);
 }
 
 .buy-now:hover {
-    background: var(--light-blue);
+    background: #ddd;
     transform: scale(1.05);
 }
 
 .more {
     background: transparent;
-    color: var(--primary-blue);
-    border: 2px solid var(--primary-blue);
+    color: var(--white);
+    border: 2px solid var(--white);
 }
 
 .more:hover {
-    background: var(--primary-blue);
-    color: white;
+    background: var(--white);
+    color: var(--primary);
 }
 
-/* Dropdown - subtle slide */
 .dropdown {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.6s ease;
-    background: var(--light-gray);
+    background: #222;
     padding: 0 1.5rem;
+    color: var(--dark-text);
 }
 
 .dropdown.open {
-    max-height: 800px; /* adjust if needed */
+    max-height: 800px;
     padding: 1.5rem;
 }
 
-/* Footer etc - match theme */
 footer {
-    background: var(--deep-blue);
+    background: var(--deep);
     color: white;
     padding: 3rem 1rem;
     text-align: center;
